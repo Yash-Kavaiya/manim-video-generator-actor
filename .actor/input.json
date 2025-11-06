@@ -1,0 +1,17 @@
+{
+  "sceneType": "SimplePresentation",
+  "videoQuality": "medium",
+  "actorStyle": "cartoon",
+  "actorColorScheme": "blue",
+  "actorPreset": "none",
+  "outputFormat": "mp4",
+  "backgroundColor": "#000000",
+  "fps": 30,
+  "videoDuration": 30,
+  "enableSubtitles": false,
+  "saveIntermediateFrames": false,
+  "multiActorMode": false,
+  "debug": false,
+  "maxMemoryMbytes": 4096,
+  "outputFileName": "simple_presentation"
+}

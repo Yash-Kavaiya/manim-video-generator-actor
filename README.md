@@ -472,6 +472,148 @@ manim -pql examples/quick_start.py QuickStart
 # 4. Create your own scene!
 ```
 
+## Deploying as Apify Actor
+
+This project can be deployed as an [Apify Actor](https://apify.com/actors) for cloud-based video generation.
+
+### Quick Deploy to Apify
+
+1. **Prerequisites**
+   - [Apify account](https://console.apify.com/sign-up) (free tier available)
+   - [Apify CLI](https://docs.apify.com/cli) installed: `npm install -g apify-cli`
+
+2. **Login to Apify**
+   ```bash
+   apify login
+   ```
+
+3. **Initialize and Deploy**
+   ```bash
+   # From project root
+   apify push
+   ```
+
+4. **Run on Apify Console**
+   - Visit your [Apify Console](https://console.apify.com/actors)
+   - Find your deployed actor
+   - Configure input parameters
+   - Run!
+
+### Apify Input Configuration
+
+The Actor accepts the following inputs through the Apify platform:
+
+#### Basic Configuration
+- **Scene Type**: Choose from pre-built scenes or create custom
+- **Video Quality**: low (480p), medium (854x480), high (1080p), production (4K)
+- **Actor Style**: cartoon, simple, stick_figure, professional
+- **Color Scheme**: blue, orange, green, purple, red, grayscale, custom
+
+#### Advanced Options
+- **Multi-Actor Mode**: Enable conversations between multiple actors
+- **Custom Scene Config**: Define custom dialogues, equations, and animations
+- **Subtitles**: Auto-generate subtitle files
+- **Output Format**: mp4, mov, webm
+- **FPS**: Frame rate (15-60 fps)
+
+### Example Input (JSON)
+
+**Simple Presentation:**
+```json
+{
+  "sceneType": "SimplePresentation",
+  "videoQuality": "medium",
+  "actorStyle": "cartoon",
+  "actorColorScheme": "blue",
+  "outputFormat": "mp4",
+  "fps": 30
+}
+```
+
+**Math Lesson:**
+```json
+{
+  "sceneType": "MathLesson",
+  "videoQuality": "high",
+  "actorStyle": "professional",
+  "actorPreset": "teacher",
+  "enableSubtitles": true,
+  "outputFormat": "mp4"
+}
+```
+
+**Custom Scene:**
+```json
+{
+  "sceneType": "CustomScene",
+  "videoQuality": "medium",
+  "actorStyle": "cartoon",
+  "customSceneConfig": {
+    "title": "Understanding Calculus",
+    "equation": "\\frac{df}{dx}",
+    "dialogues": [
+      {
+        "text": "Let's explore derivatives!",
+        "isMath": false,
+        "duration": 2
+      }
+    ]
+  }
+}
+```
+
+### Example Inputs Included
+
+The project includes ready-to-use example inputs in `.actor/input_examples/`:
+- `math_lesson.json` - Pythagorean theorem tutorial
+- `multi_actor_conversation.json` - Teacher-student dialogue
+- `custom_scene.json` - Custom calculus video
+
+### Output
+
+The Actor saves:
+- **Video file** to Apify Key-Value Store
+- **Metadata** to Apify Dataset (includes file info, configuration, etc.)
+- **Subtitle file** (if enabled)
+
+Access your generated videos through:
+```
+https://api.apify.com/v2/key-value-stores/{storeId}/records/{fileName}
+```
+
+### Apify Actor Features
+
+✅ Cloud-based rendering (no local setup needed)
+✅ Scalable compute resources
+✅ Automatic storage management
+✅ RESTful API access
+✅ Webhook integrations
+✅ Scheduled runs
+✅ Version control
+
+### Local Testing with Apify CLI
+
+Test the Actor locally before deployment:
+
+```bash
+# Set up Apify storage
+apify init
+
+# Run locally
+apify run
+
+# With custom input
+apify run --input '{"sceneType": "MathLesson", "videoQuality": "low"}'
+```
+
+### Pricing Considerations
+
+- **Free tier**: Includes compute credits for testing
+- **Video generation**: ~1-5 minutes compute time per video (depending on quality)
+- **Storage**: Videos stored in key-value store (check Apify pricing for storage costs)
+
+For more information, see the [Apify documentation](https://docs.apify.com/).
+
 ## Support
 
 If you find this project helpful, consider:

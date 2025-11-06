@@ -1,0 +1,39 @@
+{
+  "actorSpecification": 1,
+  "name": "manim-video-generator-actor",
+  "title": "Manim Actor Video Generator",
+  "description": "Generate professional animated math and educational videos with customizable animated characters using Manim. Perfect for creating engaging tutorials, explanations, and presentations with interactive actors that point, explain, and react to mathematical concepts.",
+  "version": "1.0.0",
+  "meta": {
+    "templateId": "python-start"
+  },
+  "input": "./.actor/INPUT_SCHEMA.json",
+  "dockerfile": "./Dockerfile",
+  "readme": "./README.md",
+  "categories": [
+    "VIDEO",
+    "ENTERTAINMENT",
+    "EDUCATION"
+  ],
+  "storages": {
+    "dataset": {
+      "actorSpecification": 1,
+      "title": "Video Metadata",
+      "views": {
+        "default": {
+          "title": "Generated Videos",
+          "transformation": {
+            "fields": [
+              "fileName",
+              "videoUrl",
+              "sceneType",
+              "duration",
+              "quality",
+              "actorStyle"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

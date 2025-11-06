@@ -1,0 +1,58 @@
+{
+  "sceneType": "CustomScene",
+  "videoQuality": "medium",
+  "actorStyle": "cartoon",
+  "actorColorScheme": "custom",
+  "customColors": {
+    "head": "#9b59b6",
+    "body": "#ecf0f1",
+    "arms": "#9b59b6",
+    "legs": "#9b59b6",
+    "accent": "#f39c12"
+  },
+  "customSceneConfig": {
+    "title": "Understanding Derivatives",
+    "mainText": "Let's explore calculus!",
+    "equation": "\\frac{df}{dx} = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h}",
+    "dialogues": [
+      {
+        "text": "Welcome to calculus!",
+        "isMath": false,
+        "duration": 2
+      },
+      {
+        "text": "This is the definition of a derivative",
+        "isMath": false,
+        "duration": 3
+      },
+      {
+        "text": "\\frac{df}{dx}",
+        "isMath": true,
+        "duration": 2
+      }
+    ],
+    "actorPosition": "left",
+    "showCelebration": true
+  },
+  "customEquations": [
+    "\\frac{df}{dx}",
+    "\\int f(x) dx",
+    "\\lim_{x \\to \\infty} f(x)"
+  ],
+  "actorAnimations": [
+    "wave",
+    "point",
+    "think",
+    "celebrate"
+  ],
+  "outputFormat": "mp4",
+  "backgroundColor": "#1a1a1a",
+  "fps": 30,
+  "videoDuration": 45,
+  "enableSubtitles": true,
+  "saveIntermediateFrames": false,
+  "multiActorMode": false,
+  "debug": false,
+  "maxMemoryMbytes": 4096,
+  "outputFileName": "custom_calculus_video"
+}

@@ -1,0 +1,19 @@
+{
+  "sceneType": "MultiActorScene",
+  "videoQuality": "high",
+  "actorStyle": "professional",
+  "actorColorScheme": "blue",
+  "actorPreset": "teacher",
+  "multiActorMode": true,
+  "secondActorStyle": "cartoon",
+  "secondActorColorScheme": "orange",
+  "outputFormat": "mp4",
+  "backgroundColor": "#000000",
+  "fps": 60,
+  "videoDuration": 90,
+  "enableSubtitles": true,
+  "saveIntermediateFrames": false,
+  "debug": false,
+  "maxMemoryMbytes": 8192,
+  "outputFileName": "teacher_student_conversation"
+}
