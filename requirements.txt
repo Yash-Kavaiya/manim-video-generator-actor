@@ -1,0 +1,17 @@
+# Manim Actor Video Generator Requirements
+
+# Core dependency
+manim>=0.18.0
+
+# Optional dependencies for advanced features
+numpy>=1.21.0
+pillow>=9.0.0
+
+# For audio/speech synthesis (optional)
+# gTTS>=2.3.0
+# pyttsx3>=2.90
+
+# Development dependencies (optional)
+# pytest>=7.0.0
+# pytest-cov>=3.0.0
+# black>=22.0.0
