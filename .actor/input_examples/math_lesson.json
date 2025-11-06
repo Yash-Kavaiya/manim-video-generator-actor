@@ -1,0 +1,17 @@
+{
+  "sceneType": "MathLesson",
+  "videoQuality": "high",
+  "actorStyle": "professional",
+  "actorColorScheme": "blue",
+  "actorPreset": "teacher",
+  "outputFormat": "mp4",
+  "backgroundColor": "#000000",
+  "fps": 60,
+  "videoDuration": 60,
+  "enableSubtitles": false,
+  "saveIntermediateFrames": false,
+  "multiActorMode": false,
+  "debug": false,
+  "maxMemoryMbytes": 8192,
+  "outputFileName": "pythagorean_theorem_lesson"
+}

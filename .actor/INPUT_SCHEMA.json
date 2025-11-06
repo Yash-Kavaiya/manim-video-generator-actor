@@ -1,0 +1,262 @@
+{
+  "title": "Manim Actor Video Generator Input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "sceneType": {
+      "title": "Scene Type",
+      "type": "string",
+      "description": "Choose a pre-built scene or create a custom one",
+      "editor": "select",
+      "enum": [
+        "ActorIntroduction",
+        "SimplePresentation",
+        "MathLesson",
+        "ActorInteraction",
+        "ProblemSolving",
+        "MultiActorScene",
+        "InteractiveTutorial",
+        "CustomScene"
+      ],
+      "enumTitles": [
+        "Actor Introduction - Showcase all actor styles",
+        "Simple Presentation - Actor presents a concept",
+        "Math Lesson - Pythagorean Theorem tutorial",
+        "Actor Interaction - Interact with animated objects",
+        "Problem Solving - Work through a math problem",
+        "Multi-Actor Scene - Two actors conversation",
+        "Interactive Tutorial - Step-by-step equation solving",
+        "Custom Scene - Create your own scene"
+      ],
+      "default": "SimplePresentation"
+    },
+    "videoQuality": {
+      "title": "Video Quality",
+      "type": "string",
+      "description": "Rendering quality (higher quality = longer render time)",
+      "editor": "select",
+      "enum": ["low", "medium", "high", "production"],
+      "enumTitles": [
+        "Low - 480p 15fps (fast preview)",
+        "Medium - 854x480 30fps",
+        "High - 1080p 60fps",
+        "Production - 4K 60fps (slowest)"
+      ],
+      "default": "medium"
+    },
+    "actorStyle": {
+      "title": "Primary Actor Style",
+      "type": "string",
+      "description": "Visual style for the main actor",
+      "editor": "select",
+      "enum": ["cartoon", "simple", "stick_figure", "professional"],
+      "enumTitles": [
+        "Cartoon - Expressive with personality",
+        "Simple - Clean geometric shapes",
+        "Stick Figure - Minimalist (fastest)",
+        "Professional - Polished silhouette"
+      ],
+      "default": "cartoon"
+    },
+    "actorColorScheme": {
+      "title": "Actor Color Scheme",
+      "type": "string",
+      "description": "Color palette for the actor",
+      "editor": "select",
+      "enum": ["blue", "orange", "green", "purple", "red", "grayscale", "custom"],
+      "enumTitles": [
+        "Blue - Professional teacher look",
+        "Orange - Friendly and warm",
+        "Green - Fresh and natural",
+        "Purple - Creative and unique",
+        "Red - Bold and energetic",
+        "Grayscale - Classic monochrome",
+        "Custom - Define your own colors"
+      ],
+      "default": "blue"
+    },
+    "customColors": {
+      "title": "Custom Colors (if selected)",
+      "type": "object",
+      "description": "Define custom colors for actor parts (hex codes)",
+      "editor": "json",
+      "prefill": {
+        "head": "#3498db",
+        "body": "#ecf0f1",
+        "arms": "#3498db",
+        "legs": "#3498db",
+        "accent": "#f39c12"
+      },
+      "sectionCaption": "Custom color configuration"
+    },
+    "customSceneConfig": {
+      "title": "Custom Scene Configuration",
+      "type": "object",
+      "description": "Configuration for custom scenes (only used if sceneType is CustomScene)",
+      "editor": "json",
+      "prefill": {
+        "title": "My Custom Video",
+        "mainText": "Hello, World!",
+        "equation": "E = mc^2",
+        "dialogues": [
+          {
+            "text": "Welcome to my video!",
+            "isMath": false,
+            "duration": 2
+          },
+          {
+            "text": "E = mc^2",
+            "isMath": true,
+            "duration": 3
+          }
+        ],
+        "actorPosition": "left",
+        "showCelebration": true
+      },
+      "sectionCaption": "Custom scene settings"
+    },
+    "actorPreset": {
+      "title": "Actor Preset",
+      "type": "string",
+      "description": "Use a predefined actor configuration",
+      "editor": "select",
+      "enum": ["none", "teacher", "student", "presenter", "custom"],
+      "enumTitles": [
+        "None - Use style and color selections above",
+        "Teacher - Professional blue teacher",
+        "Student - Friendly orange student",
+        "Presenter - Teal presenter",
+        "Custom - Full customization"
+      ],
+      "default": "none"
+    },
+    "outputFormat": {
+      "title": "Output Format",
+      "type": "string",
+      "description": "Video output format",
+      "editor": "select",
+      "enum": ["mp4", "mov", "webm"],
+      "default": "mp4"
+    },
+    "backgroundColor": {
+      "title": "Background Color",
+      "type": "string",
+      "description": "Background color for the video (hex code or Manim color name)",
+      "editor": "textfield",
+      "default": "#000000",
+      "example": "#000000 or BLACK"
+    },
+    "fps": {
+      "title": "Frames Per Second",
+      "type": "integer",
+      "description": "Frame rate for the video (15, 30, or 60)",
+      "editor": "number",
+      "minimum": 15,
+      "maximum": 60,
+      "default": 30
+    },
+    "videoDuration": {
+      "title": "Target Duration (seconds)",
+      "type": "integer",
+      "description": "Approximate duration for the video (where applicable)",
+      "editor": "number",
+      "minimum": 5,
+      "maximum": 300,
+      "default": 30
+    },
+    "enableSubtitles": {
+      "title": "Enable Subtitles",
+      "type": "boolean",
+      "description": "Generate subtitle file (.srt) for the video",
+      "default": false
+    },
+    "saveIntermediateFrames": {
+      "title": "Save Intermediate Frames",
+      "type": "boolean",
+      "description": "Save individual frame images (useful for debugging)",
+      "default": false
+    },
+    "audioNarration": {
+      "title": "Audio Narration",
+      "type": "object",
+      "description": "Text-to-speech narration settings",
+      "editor": "json",
+      "prefill": {
+        "enabled": false,
+        "voice": "en-US",
+        "speed": 1.0,
+        "script": ""
+      }
+    },
+    "customEquations": {
+      "title": "Custom Equations",
+      "type": "array",
+      "description": "List of LaTeX equations to include in custom scenes",
+      "editor": "json",
+      "prefill": [
+        "a^2 + b^2 = c^2",
+        "\\frac{df}{dx}",
+        "\\int_{0}^{\\infty} e^{-x} dx = 1"
+      ]
+    },
+    "actorAnimations": {
+      "title": "Actor Animations",
+      "type": "array",
+      "description": "Sequence of animations for the actor",
+      "editor": "stringList",
+      "placeholderValue": "wave",
+      "prefill": [
+        "wave",
+        "point",
+        "nod",
+        "celebrate"
+      ]
+    },
+    "multiActorMode": {
+      "title": "Multi-Actor Mode",
+      "type": "boolean",
+      "description": "Enable multiple actors in the scene",
+      "default": false
+    },
+    "secondActorStyle": {
+      "title": "Second Actor Style",
+      "type": "string",
+      "description": "Style for the second actor (if multi-actor mode enabled)",
+      "editor": "select",
+      "enum": ["cartoon", "simple", "stick_figure", "professional"],
+      "default": "simple"
+    },
+    "secondActorColorScheme": {
+      "title": "Second Actor Color Scheme",
+      "type": "string",
+      "description": "Color scheme for the second actor",
+      "editor": "select",
+      "enum": ["blue", "orange", "green", "purple", "red", "grayscale"],
+      "default": "orange"
+    },
+    "debug": {
+      "title": "Debug Mode",
+      "type": "boolean",
+      "description": "Enable debug output and verbose logging",
+      "default": false
+    },
+    "maxMemoryMbytes": {
+      "title": "Maximum Memory (MB)",
+      "type": "integer",
+      "description": "Maximum memory allocation for rendering (recommended: 4096-8192)",
+      "editor": "number",
+      "minimum": 2048,
+      "maximum": 16384,
+      "default": 4096
+    },
+    "outputFileName": {
+      "title": "Output File Name",
+      "type": "string",
+      "description": "Custom name for the output video file (without extension)",
+      "editor": "textfield",
+      "default": "manim_actor_video",
+      "pattern": "^[a-zA-Z0-9_-]+$"
+    }
+  },
+  "required": ["sceneType", "videoQuality"]
+}

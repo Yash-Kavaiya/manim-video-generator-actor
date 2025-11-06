@@ -3,6 +3,9 @@
 # Core dependency
 manim>=0.18.0
 
+# Apify SDK for Actor deployment
+apify>=1.6.0
+
 # Optional dependencies for advanced features
 numpy>=1.21.0
 pillow>=9.0.0
