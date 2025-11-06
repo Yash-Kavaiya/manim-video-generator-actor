@@ -7,9 +7,9 @@
   "meta": {
     "templateId": "python-start"
   },
-  "input": "./.actor/INPUT_SCHEMA.json",
-  "dockerfile": "./Dockerfile",
-  "readme": "./README.md",
+  "input": "./INPUT_SCHEMA.json",
+  "dockerfile": "../Dockerfile",
+  "readme": "../README.md",
   "categories": [
     "VIDEO",
     "ENTERTAINMENT",
