@@ -35,5 +35,7 @@
         }
       }
     }
-  }
+  },
+  "supportedMcpTransports": ["streamableHttp"],
+  "payPerEvent": "./.actor/pay_per_event.json"
 }
