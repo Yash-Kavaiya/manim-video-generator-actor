@@ -44,7 +44,34 @@ PORT = int(os.environ.get('ACTOR_STANDBY_PORT', '5001'))
 
 ## Common Build Problems
 
-### 1. Dependencies Not Installing
+### 1. File Path Errors in actor.json
+
+**Symptoms:**
+- `ERROR: File ".actor/.actor/INPUT_SCHEMA.json" does not exist!`
+- `ERROR: File ".actor/.actor/pay_per_event.json" does not exist!`
+- Actor fails during initialization with file not found errors
+
+**Problem:**
+Paths in `actor.json` are relative to the `.actor/` directory, but were incorrectly prefixed with `./.actor/`.
+
+**Solution:**
+```json
+// WRONG - creates duplicate path .actor/.actor/
+{
+  "input": "./.actor/INPUT_SCHEMA.json",
+  "payPerEvent": "./.actor/pay_per_event.json"
+}
+
+// CORRECT - paths relative to actor.json location
+{
+  "input": "./INPUT_SCHEMA.json",
+  "payPerEvent": "./pay_per_event.json"
+}
+```
+
+**Fixed in commit b50169f**
+
+### 2. Dependencies Not Installing
 
 **Symptoms:**
 - Build fails during `pip install`
@@ -65,7 +92,7 @@ python validate_build.py
 # - manim>=0.18.0
 ```
 
-### 2. Module Import Errors
+### 3. Module Import Errors
 
 **Symptoms:**
 - "No module named 'src'"
@@ -84,7 +111,7 @@ src/
 └── server.py
 ```
 
-### 3. JSON Parsing Errors
+### 4. JSON Parsing Errors
 
 **Symptoms:**
 - "Unexpected token 'C', 'Create a manin video' is not valid JSON"
@@ -109,7 +136,7 @@ src/
 }
 ```
 
-### 4. Actor Won't Start in STANDBY Mode
+### 5. Actor Won't Start in STANDBY Mode
 
 **Symptoms:**
 - Actor exits immediately with "Not designed to run in NORMAL mode"
@@ -123,7 +150,7 @@ ACTOR_STANDBY_PORT=5001
 ACTOR_STANDBY_URL=https://your-actor-url
 ```
 
-### 5. Port Binding Issues
+### 6. Port Binding Issues
 
 **Symptoms:**
 - "Address already in use"
@@ -136,7 +163,7 @@ The port is configured via environment variable:
 export ACTOR_STANDBY_PORT=8080
 ```
 
-### 6. Session Timeout Too Short
+### 7. Session Timeout Too Short
 
 **Symptoms:**
 - Connections drop frequently
