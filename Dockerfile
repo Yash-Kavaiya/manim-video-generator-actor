@@ -42,5 +42,11 @@ RUN mkdir -p /usr/src/app/storage/key_value_stores/default
 ENV MANIM_CACHE_DIR=/tmp/manim_cache
 ENV PYTHONUNBUFFERED=1
 
-# Run the main Actor script
-CMD ["python", "-u", "main.py"]
+# Support both MCP server mode and regular actor mode
+# MCP server mode is activated when APIFY_META_ORIGIN=STANDBY
+# Regular actor mode is used otherwise
+CMD if [ "$APIFY_META_ORIGIN" = "STANDBY" ]; then \
+        python -u -m src; \
+    else \
+        python -u main.py; \
+    fi
