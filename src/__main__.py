@@ -13,7 +13,7 @@ STANDBY_MODE = os.environ.get('APIFY_META_ORIGIN') == 'STANDBY'
 # Bind to all interfaces (0.0.0.0) as this is running in a containerized environment (Apify Actor)
 # The container's network is isolated, so this is safe
 HOST = '0.0.0.0'  # noqa: S104 - Required for container networking at Apify platform
-PORT = (Actor.is_at_home() and int(os.environ.get('ACTOR_STANDBY_PORT') or '5001')) or 5001
+PORT = int(os.environ.get('ACTOR_STANDBY_PORT', '5001'))
 SERVER_NAME = 'manim-video-generator'  # Name of the MCP server, without spaces
 
 # CONFIGURATION SECTION ------------------------------------------------------------
