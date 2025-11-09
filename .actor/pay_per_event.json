@@ -1,0 +1,24 @@
+{
+  "events": [
+    {
+      "name": "GENERATE_VIDEO",
+      "description": "Generate an animated video using Manim",
+      "defaultEventPrice": 0.10
+    },
+    {
+      "name": "LIST_SCENES",
+      "description": "List available scene types",
+      "defaultEventPrice": 0.001
+    },
+    {
+      "name": "GET_STYLES",
+      "description": "Get available actor styles and color schemes",
+      "defaultEventPrice": 0.001
+    },
+    {
+      "name": "VALIDATE_CONFIG",
+      "description": "Validate scene configuration",
+      "defaultEventPrice": 0.002
+    }
+  ]
+}

@@ -6,6 +6,13 @@ manim>=0.18.0
 # Apify SDK for Actor deployment
 apify>=1.6.0
 
+# MCP Server dependencies
+mcp>=1.0.0
+uvicorn>=0.27.0
+starlette>=0.36.0
+httpx>=0.26.0
+pydantic>=2.0.0
+
 # Optional dependencies for advanced features
 numpy>=1.21.0
 pillow>=9.0.0
