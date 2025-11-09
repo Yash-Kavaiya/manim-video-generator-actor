@@ -45,8 +45,4 @@ ENV PYTHONUNBUFFERED=1
 # Support both MCP server mode and regular actor mode
 # MCP server mode is activated when APIFY_META_ORIGIN=STANDBY
 # Regular actor mode is used otherwise
-CMD if [ "$APIFY_META_ORIGIN" = "STANDBY" ]; then \
-        python -u -m src; \
-    else \
-        python -u main.py; \
-    fi
+CMD ["/bin/sh", "-c", "if [ \"$APIFY_META_ORIGIN\" = \"STANDBY\" ]; then python -u -m src; else python -u main.py; fi"]
