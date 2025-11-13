@@ -591,6 +591,31 @@ https://api.apify.com/v2/key-value-stores/{storeId}/records/{fileName}
 ✅ Scheduled runs
 ✅ Version control
 
+### Schema Validation & Configuration
+
+The Actor includes comprehensive schemas for input validation and output structure:
+
+**Validating Your Configuration:**
+```bash
+# Run the validation script to check all schemas
+python3 validate_schemas.py
+```
+
+This will verify:
+- ✅ `actor.json` - Actor configuration and metadata
+- ✅ `INPUT_SCHEMA.json` - Input field definitions (22 customizable parameters)
+- ✅ `input.json` - Sample/default input configuration
+- ✅ Dataset schema - Output data structure definition
+
+**Removing Maintenance Flag:**
+
+If your Actor is marked as "under maintenance", all schemas are validated and ready. See [`REMOVE_MAINTENANCE_FLAG.md`](REMOVE_MAINTENANCE_FLAG.md) for detailed instructions on:
+- How to remove the maintenance flag via Apify Console
+- Verification steps to ensure everything works
+- Troubleshooting common issues
+
+The validation ensures your Actor is production-ready with proper input forms, API examples, and dataset views in the Apify Store.
+
 ### Local Testing with Apify CLI
 
 Test the Actor locally before deployment:
